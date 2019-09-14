@@ -10,7 +10,7 @@ The STAR schema consists of one fact table referencing any number of dimension t
 
 * What is the next song Sparkify user would like to listen based on his past behavior.
 * which song user would be more interested in listening to that particular point of time.
-And much more complex business logics can be easily solved using the STAR schema method.
+And much more complex business logic can be easily solved using the STAR schema method.
 
 Created a STAR schema, optimized for song play analysis.
 
@@ -54,16 +54,31 @@ This database will help the internal departments of the Sparkify company to do d
   
 **etl.py**: Check the table schemas in your redshift database, if you find database schema is created successfully you can run this file. 
   load_staging_tables: This function is used to load the data from S3 to Redshift staging tables.
-  insert_tables: This functionis used to insert data into fact and dimemsion tables from staging tables.
+  insert_tables: This function is used to insert data into fact and dimension tables from staging tables.
+  
+**run_analytics.py**: prints out the count for each table in the database.
 
-## execute files in the below order each time before pipeline
+## Execute files in the below order each time before pipeline
 
 1.create_tables.py
-```python
-$ python3 create_tables.py
-```
+
+`python create_tables.py`
 
 2. etl.py
-```python
-$ python3 etl.py
-```
+
+`python etl.py`
+
+3. run_analytics.py
+
+`python run_analytics.py`
+
+## Queries and Results
+
+Number of rows in each table:
+- staging_events 8056 
+- staging_songs 14896 
+- artists 10025 
+- songplays 320  
+- songs 14896 
+- time 320  
+- users 104  

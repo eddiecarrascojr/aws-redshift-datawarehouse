@@ -23,8 +23,9 @@ def main():
     cur = conn.cursor()
 
     drop_tables(cur, conn)
+    print('Tables have been dropped.')
     create_tables(cur, conn)
-
+    print('Tables have been created.')
     conn.close()
 
 
